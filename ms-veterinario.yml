@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/veterinario_db?createDatabaseIfNotExist=true&sslMode=DISABLED&allowPublicKeyRetrieval=true&connectionTimeZone=UTC
+
+info:
+  app:
+    name: ms-veterinario
+    description: Microservicio de gestión de veterinarios - Patitas Felices
+    version: 1.0.0

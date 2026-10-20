@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mascota_db?createDatabaseIfNotExist=true&sslMode=DISABLED&allowPublicKeyRetrieval=true&connectionTimeZone=UTC
+
+info:
+  app:
+    name: ms-mascota
+    description: Microservicio de gestión de mascotas - Patitas Felices
+    version: 1.0.0
