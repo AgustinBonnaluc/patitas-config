@@ -6,8 +6,8 @@ spring:
       client:
         config:
           default:
-            connect-timeout: 3000   # ms para conectar
-            read-timeout: 5000      # ms para leer la respuesta
+            connect-timeout: 3000
+            read-timeout: 5000
             logger-level: basic
       compression:
         request:

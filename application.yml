@@ -1,4 +1,3 @@
-# Configuracion COMPARTIDA por todos los microservicios
 eureka:
   client:
     service-url:
@@ -15,7 +14,6 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-    # NO configurar spring.jpa.database-platform: Hibernate 7 lo detecta solo
 
 management:
   endpoints:

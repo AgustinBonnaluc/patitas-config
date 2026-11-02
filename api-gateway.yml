@@ -1,0 +1,59 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          routes:
+            - id: ms-dueno
+              uri: lb://ms-dueno
+              predicates:
+                - Path=/api/duenos/**
+
+            - id: ms-mascota
+              uri: lb://ms-mascota
+              predicates:
+                - Path=/api/mascotas/**
+
+            - id: ms-veterinario
+              uri: lb://ms-veterinario
+              predicates:
+                - Path=/api/veterinarios/**
+
+            - id: ms-turno
+              uri: lb://ms-turno
+              predicates:
+                - Path=/api/turnos/**
+
+            - id: ms-dueno-v1
+              uri: lb://ms-dueno
+              predicates:
+                - Path=/v1/duenos/**
+              filters:
+                - RewritePath=/v1/duenos(?<segment>/?.*), /api/duenos$\{segment}
+
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins: "*"
+                allowedMethods: [GET, POST, PUT, PATCH, DELETE, OPTIONS]
+                allowedHeaders: "*"
+                allowCredentials: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,gateway
+  endpoint:
+    gateway:
+      access: unrestricted
+
+info:
+  app:
+    name: api-gateway
+    description: Punto de entrada unico - Patitas Felices
+    version: 1.0.0
